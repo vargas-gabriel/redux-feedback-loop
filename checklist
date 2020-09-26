@@ -1,2 +1,7 @@
-[]create database 
-[]npm install/ren server/client
+[x]create database 
+[x]npm install/run server/client
+[]set up redux
+[]create interface
+[]routes?
+[]create console logs for input fields/buttons/forms
+
