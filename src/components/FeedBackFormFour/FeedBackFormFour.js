@@ -5,7 +5,7 @@ class FeedbackFormFour extends Component {
 		console.log("component mounted 4");
 	}
 	render() {
-		return <div>FeedbackFormThree!</div>;
+		return <div>Any comments you want to leave?</div>;
 	}
 }
 

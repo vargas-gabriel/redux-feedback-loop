@@ -5,7 +5,7 @@ class ReviewFeedBack extends Component {
 		console.log("component mounted Review");
 	}
 	render() {
-		return <div>ReviewFeedBack!</div>;
+		return <div>Review Your Feedback</div>;
 	}
 }
 
