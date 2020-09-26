@@ -11,6 +11,7 @@ class FeedbackFormThree extends Component {
 	handleSubmit = (event) => {
 		//event.preventDefault();
 		console.log("submitted!");
+		this.nextPage();
 	};
 	handleChangeFor = (event) => {
 		console.log("inHandleChangeFor", event.target.value);
@@ -30,9 +31,7 @@ class FeedbackFormThree extends Component {
 						type='Number'
 						placeholder='Select a Number'
 						onChange={(event) => this.handleChangeFor(event)}></input>
-					<button type='submit' onClick={this.nextPage}>
-						Next
-					</button>
+					<button type='submit'>Next</button>
 				</form>
 			</div>
 		);

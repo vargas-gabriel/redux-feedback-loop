@@ -9,8 +9,9 @@ class FeedbackFormTwo extends Component {
 		console.log("component mounted 2");
 	}
 	handleSubmit = (event) => {
-		event.preventDefault();
+		//event.preventDefault();
 		console.log("submitted!");
+		this.nextPage();
 	};
 	handleChangeFor = (event) => {
 		console.log("inHandleChangeFor", event.target.value);
@@ -30,9 +31,7 @@ class FeedbackFormTwo extends Component {
 						type='Number'
 						placeholder='Select a Number'
 						onChange={(event) => this.handleChangeFor(event)}></input>
-					<button type='submit' onClick={this.nextPage}>
-						Next
-					</button>
+					<button type='submit'>Next</button>
 				</form>
 			</div>
 		);

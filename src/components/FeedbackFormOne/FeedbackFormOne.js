@@ -4,7 +4,9 @@ import { withRouter } from "react-router-dom";
 
 class FeedbackFormOne extends Component {
 	state = {
-		feeling: [],
+		newFeeling: {
+			feeling: "",
+		},
 	};
 	componentDidMount() {
 		console.log("component mounted");
@@ -12,9 +14,17 @@ class FeedbackFormOne extends Component {
 	handleSubmit = (event) => {
 		//event.preventDefault();
 		console.log("submitted!");
+		this.nextPage();
 	};
-	handleChangeFor = (event) => {
-		console.log("inHandleChangeFor", event.target.value);
+	handleChangeFor = (propertyName, event) => {
+		console.log([propertyName], "is:", event.target.value);
+		this.setState({
+			newFeeling: {
+				...this.state.newFeeling,
+				[propertyName]: event.target.value,
+			},
+		});
+		console.log(this.state.newFeeling);
 	};
 	nextPage = () => {
 		console.log(this.props.history, "next page");
@@ -30,10 +40,10 @@ class FeedbackFormOne extends Component {
 						required
 						type='Number'
 						placeholder='Select a Number'
-						onChange={(event) => this.handleChangeFor(event)}></input>
-					<button type='submit' onClick={this.nextPage}>
-						Next
-					</button>
+						onChange={(event) =>
+							this.handleChangeFor("feeling", event)
+						}></input>
+					<button type='submit'>Next</button>
 				</form>
 			</div>
 		);
@@ -42,4 +52,3 @@ class FeedbackFormOne extends Component {
 
 //export default FeedbackFormOne;
 export default withRouter(FeedbackFormOne);
-//allows to programatically change which page we're on

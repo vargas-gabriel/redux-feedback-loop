@@ -15,5 +15,19 @@ router.get("/", (req, res) => {
 			res.sendStatus(500);
 		});
 });
+router.post("/", (req, res) => {
+	console.log("Sending Feedback");
+	const queryText = `INSERT INTO "feedback" ("feeling", "understanding", "support", "comments")
+	 VALUES ($1, $2, $3, $4)`;
+	pool
+		.query(queryText)
+		.then((results) => {
+			res.send(results.rows);
+		})
+		.catch((err) => {
+			console.log(err);
+			res.sendStatus(500);
+		});
+});
 
 module.exports = router;
