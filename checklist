@@ -2,6 +2,6 @@
 [x]npm install/run server/client
 []set up redux
 []create interface
-[]routes?
+[x]routes?
 []create console logs for input fields/buttons/forms
 
