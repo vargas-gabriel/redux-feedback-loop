@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
 class FeedbackFormThree extends Component {
@@ -14,7 +15,10 @@ class FeedbackFormThree extends Component {
 		this.nextPage();
 	};
 	handleChangeFor = (event) => {
-		console.log("inHandleChangeFor", event.target.value);
+		this.props.dispatch({
+			type: "SET_SUPPORT",
+			payload: event.target.value,
+		});
 	};
 	nextPage = () => {
 		console.log(this.props.history, "next page");
@@ -25,12 +29,14 @@ class FeedbackFormThree extends Component {
 			<div>
 				How well are you being supported?
 				<form onSubmit={this.handleSubmit}>
-					Support?
+					Select a number
 					<input
 						required
 						type='Number'
+						min='1'
+						max='5'
 						placeholder='Select a Number'
-						onChange={(event) => this.handleChangeFor(event)}></input>
+						onChange={this.handleChangeFor}></input>
 					<button type='submit'>Next</button>
 				</form>
 			</div>
@@ -39,4 +45,4 @@ class FeedbackFormThree extends Component {
 }
 
 //export default FeedbackFormThree;
-export default withRouter(FeedbackFormThree);
+export default connect()(withRouter(FeedbackFormThree));

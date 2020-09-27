@@ -7,7 +7,8 @@ import FeedbackFormTwo from "../FeedBackFormTwo/FeedbackFormTwo";
 import FeedbackFormThree from "../FeedBackFormThree/FeedBackFormThree";
 import FeedBackFormFour from "../FeedBackFormFour/FeedBackFormFour";
 import ReviewFeedBack from "../ReviewFeedBack/ReviewFeedBack";
-
+import SubmissionForm from "../SubmissionForm/SubmissionForm";
+import WelcomeForm from "../WelcomeForm/WelcomeForm";
 class App extends Component {
 	render() {
 		return (
@@ -20,6 +21,9 @@ class App extends Component {
 						</h4>
 					</header>
 					<br />
+					<Route path='/' exact>
+						<WelcomeForm />
+					</Route>
 					<Route path='/1'>
 						<FeedbackFormOne />
 					</Route>
@@ -34,6 +38,9 @@ class App extends Component {
 					</Route>
 					<Route path='/5'>
 						<ReviewFeedBack />
+					</Route>
+					<Route path='/6'>
+						<SubmissionForm />
 					</Route>
 				</div>
 			</Router>

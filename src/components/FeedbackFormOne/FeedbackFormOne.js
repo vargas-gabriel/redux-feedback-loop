@@ -1,13 +1,9 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { Route, HashRouter as Router, Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 
 class FeedbackFormOne extends Component {
-	state = {
-		newFeeling: {
-			feeling: "",
-		},
-	};
 	componentDidMount() {
 		console.log("component mounted");
 	}
@@ -16,15 +12,11 @@ class FeedbackFormOne extends Component {
 		console.log("submitted!");
 		this.nextPage();
 	};
-	handleChangeFor = (propertyName, event) => {
-		console.log([propertyName], "is:", event.target.value);
-		this.setState({
-			newFeeling: {
-				...this.state.newFeeling,
-				[propertyName]: event.target.value,
-			},
+	handleChangeFor = (event) => {
+		this.props.dispatch({
+			type: "SET_FEELING",
+			payload: event.target.value,
 		});
-		console.log(this.state.newFeeling);
 	};
 	nextPage = () => {
 		console.log(this.props.history, "next page");
@@ -39,10 +31,10 @@ class FeedbackFormOne extends Component {
 					<input
 						required
 						type='Number'
+						min='1'
+						max='5'
 						placeholder='Select a Number'
-						onChange={(event) =>
-							this.handleChangeFor("feeling", event)
-						}></input>
+						onChange={this.handleChangeFor}></input>
 					<button type='submit'>Next</button>
 				</form>
 			</div>
@@ -50,5 +42,4 @@ class FeedbackFormOne extends Component {
 	}
 }
 
-//export default FeedbackFormOne;
-export default withRouter(FeedbackFormOne);
+export default connect()(withRouter(FeedbackFormOne));

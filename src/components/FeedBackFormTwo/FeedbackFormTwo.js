@@ -1,9 +1,12 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
 class FeedbackFormTwo extends Component {
 	state = {
-		understanding: [],
+		newUnderstanding: {
+			understanding: "",
+		},
 	};
 	componentDidMount() {
 		console.log("component mounted 2");
@@ -14,7 +17,10 @@ class FeedbackFormTwo extends Component {
 		this.nextPage();
 	};
 	handleChangeFor = (event) => {
-		console.log("inHandleChangeFor", event.target.value);
+		this.props.dispatch({
+			type: "SET_UNDERSTANDING",
+			payload: event.target.value,
+		});
 	};
 	nextPage = () => {
 		console.log(this.props.history, "next page");
@@ -25,12 +31,14 @@ class FeedbackFormTwo extends Component {
 			<div>
 				How well are you understanding the content?
 				<form onSubmit={this.handleSubmit}>
-					Understanding?
+					Select a number
 					<input
 						required
-						type='Number'
+						type='number'
+						min='1'
+						max='5'
 						placeholder='Select a Number'
-						onChange={(event) => this.handleChangeFor(event)}></input>
+						onChange={this.handleChangeFor}></input>
 					<button type='submit'>Next</button>
 				</form>
 			</div>
@@ -39,4 +47,4 @@ class FeedbackFormTwo extends Component {
 }
 
 //export default FeedbackFormTwo;
-export default withRouter(FeedbackFormTwo);
+export default connect()(withRouter(FeedbackFormTwo));

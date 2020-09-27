@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
 class FeedbackFormFour extends Component {
@@ -11,8 +12,12 @@ class FeedbackFormFour extends Component {
 		this.nextPage();
 	};
 	handleChangeFor = (event) => {
-		console.log("inHandleChangeFor", event.target.value);
+		this.props.dispatch({
+			type: "SET_COMMENTS",
+			payload: event.target.value,
+		});
 	};
+
 	nextPage = () => {
 		console.log(this.props.history, "next page");
 		this.props.history.push("/5");
@@ -25,8 +30,10 @@ class FeedbackFormFour extends Component {
 					Comments?
 					<input
 						type='text'
-						placeholder='Add a comment'
-						onChange={(event) => this.handleChangeFor(event)}></input>
+						min='1'
+						max='5'
+						placeholder='Leave a comment'
+						onChange={this.handleChangeFor}></input>
 					<button type='submit'>Next</button>
 				</form>
 			</div>
@@ -35,4 +42,4 @@ class FeedbackFormFour extends Component {
 }
 
 //export default FeedbackFormFour;
-export default withRouter(FeedbackFormFour);
+export default connect()(withRouter(FeedbackFormFour));

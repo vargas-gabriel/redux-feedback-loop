@@ -16,11 +16,16 @@ router.get("/", (req, res) => {
 		});
 });
 router.post("/", (req, res) => {
-	console.log("Sending Feedback");
-	const queryText = `INSERT INTO "feedback" ("feeling", "understanding", "support", "comments")
+	console.log("Sending Feedback", req.body);
+	const queryText = `INSERT INTO "feedback" (feeling, understanding, support, comments)
 	 VALUES ($1, $2, $3, $4)`;
 	pool
-		.query(queryText)
+		.query(queryText, [
+			req.body.feeling,
+			req.body.understanding,
+			req.body.support,
+			req.body.comments,
+		])
 		.then((results) => {
 			res.send(results.rows);
 		})
