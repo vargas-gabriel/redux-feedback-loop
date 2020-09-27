@@ -14,7 +14,7 @@ router.get("/", (req, res) => {
 			console.log(err);
 			res.sendStatus(500);
 		});
-});
+}); ///this is just a test route
 router.post("/", (req, res) => {
 	console.log("Sending Feedback", req.body);
 	const queryText = `INSERT INTO "feedback" (feeling, understanding, support, comments)
