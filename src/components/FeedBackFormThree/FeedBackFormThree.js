@@ -22,6 +22,7 @@ class FeedbackFormThree extends Component {
 	};
 	nextPage = () => {
 		console.log(this.props.history, "next page");
+		//send to next question
 		this.props.history.push("/4");
 	};
 	render() {

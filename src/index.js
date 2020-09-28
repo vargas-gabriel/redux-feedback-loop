@@ -7,14 +7,14 @@ import { Provider } from "react-redux";
 import { logger } from "redux-logger";
 
 import registerServiceWorker from "./registerServiceWorker";
-
+//initial state
 const initialEmotions = {
 	feeling: "",
 	understanding: "",
 	support: "",
 	comments: "",
 };
-
+//reducer
 const theFeedBack = (state = initialEmotions, action) => {
 	if (action.type === "SET_FEELING") {
 		//can return just action.payload- don't have to assign a var
@@ -38,14 +38,14 @@ const theFeedBack = (state = initialEmotions, action) => {
 	}
 	return state;
 };
-
+//created reduxstore
 const reduxStore = createStore(
 	combineReducers({
 		theFeedBack,
 	}),
 	applyMiddleware(logger)
 );
-
+//wrap app component in store
 ReactDOM.render(
 	<Provider store={reduxStore}>
 		<App />

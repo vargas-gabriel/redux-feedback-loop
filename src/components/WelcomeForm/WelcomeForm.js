@@ -4,6 +4,7 @@ import { withRouter } from "react-router-dom";
 
 class WelcomeForm extends Component {
 	nextPage = () => {
+		//sends you to first question
 		this.props.history.push("/1");
 	};
 

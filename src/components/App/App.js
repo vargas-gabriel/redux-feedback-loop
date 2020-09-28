@@ -9,6 +9,7 @@ import FeedBackFormFour from "../FeedBackFormFour/FeedBackFormFour";
 import ReviewFeedBack from "../ReviewFeedBack/ReviewFeedBack";
 import SubmissionForm from "../SubmissionForm/SubmissionForm";
 import WelcomeForm from "../WelcomeForm/WelcomeForm";
+//routes/ routers/imports only on this page
 class App extends Component {
 	render() {
 		return (

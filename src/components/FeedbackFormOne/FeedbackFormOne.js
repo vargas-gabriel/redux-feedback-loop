@@ -20,6 +20,7 @@ class FeedbackFormOne extends Component {
 	};
 	nextPage = () => {
 		console.log(this.props.history, "next page");
+		//send to second question
 		this.props.history.push("/2");
 	};
 	render() {

@@ -15,6 +15,7 @@ class ReviewFeedBack extends Component {
 	// // 	console.log("inHandleChangeFor", event.target.value);
 	// };
 	submitFeedback = () => {
+		//send to db
 		axios({
 			method: "POST",
 			url: "/feedback",
@@ -46,6 +47,7 @@ class ReviewFeedBack extends Component {
 		);
 	}
 }
+//map through and render
 const mapStateToProps = (reduxState) => ({
 	reduxState: reduxState.theFeedBack,
 	feeling: reduxState.theFeedBack.feeling,
