@@ -36,6 +36,10 @@ const theFeedBack = (state = initialEmotions, action) => {
 		//action.payload = result.rows/ response.data
 		return { ...state, comments: action.payload }; //return action.payload
 	}
+	if (action.type === "CLEAR_VALUES") {
+		console.log(initialEmotions, state);
+		return initialEmotions;
+	}
 	return state;
 };
 //created reduxstore

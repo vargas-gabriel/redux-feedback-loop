@@ -4,6 +4,9 @@ import { withRouter } from "react-router-dom";
 
 class SubmissionForm extends Component {
 	refreshFeedBack = () => {
+		this.props.dispatch({
+			type: "CLEAR_VALUES",
+		});
 		this.props.history.push("/");
 	};
 	render() {
