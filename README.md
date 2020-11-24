@@ -14,10 +14,10 @@ Before you get started, make sure you have the following software installed on y
 
 ## Create database
 
-Create a new database called `nibbl` and create tables using the queries in the
+Create a new database called `feedback` and create tables using the queries in the
 database.sql file
 
-If you would like to name your database something else, you will need to change `nibbl` to the name of your new database name in `server/modules/pool.js`
+If you would like to name your database something else, you will need to change `feedback` to the name of your new database name in `server/modules/pool.js`
 
 ## Setup Instructions
 
